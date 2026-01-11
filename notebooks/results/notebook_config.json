@@ -1,0 +1,19 @@
+{
+  "project_name": "Brain Tumor MRI Anomaly Detection",
+  "dataset_name": "Brain Tumor MRI Dataset",
+  "task": "Binary Classification (Tumor vs No-Tumor)",
+  "epochs": 50,
+  "batch_size": 16,
+  "learning_rate": 0.001,
+  "image_size": 256,
+  "augmentation_factor": 2,
+  "train_size": 0.85,
+  "val_size": 0.15,
+  "models": [
+    "standard",
+    "lightweight",
+    "resnet",
+    "densenet",
+    "vgg"
+  ]
+}

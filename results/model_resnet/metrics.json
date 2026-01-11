@@ -1,0 +1,10 @@
+{
+  "accuracy": 0.7383838383838384,
+  "precision": 0.8321678321678322,
+  "recall": 0.8106267029972752,
+  "f1": 0.821256038647343,
+  "specificity": 0.53125,
+  "roc_auc": 0.5977946185286104,
+  "threshold": 0.0025909869000315666,
+  "threshold_method": "Youden_J_statistic"
+}

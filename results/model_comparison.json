@@ -1,0 +1,52 @@
+{
+  "standard": {
+    "accuracy": 0.7606060606060606,
+    "precision": 0.8326639892904953,
+    "recall": 0.8474114441416893,
+    "f1": 0.8399729912221472,
+    "specificity": 0.51171875,
+    "roc_auc": 0.6094282186648502,
+    "threshold": 0.002226967364549637,
+    "threshold_method": "Youden_J_statistic"
+  },
+  "lightweight": {
+    "accuracy": 0.7808080808080808,
+    "precision": 0.8387942332896461,
+    "recall": 0.8719346049046321,
+    "f1": 0.8550434201736807,
+    "specificity": 0.51953125,
+    "roc_auc": 0.6234673024523161,
+    "threshold": 0.0027376338839530945,
+    "threshold_method": "Youden_J_statistic"
+  },
+  "resnet": {
+    "accuracy": 0.7383838383838384,
+    "precision": 0.8321678321678322,
+    "recall": 0.8106267029972752,
+    "f1": 0.821256038647343,
+    "specificity": 0.53125,
+    "roc_auc": 0.5977946185286104,
+    "threshold": 0.0025909869000315666,
+    "threshold_method": "Youden_J_statistic"
+  },
+  "densenet": {
+    "accuracy": 0.7424242424242424,
+    "precision": 0.8312586445366529,
+    "recall": 0.8188010899182562,
+    "f1": 0.8249828414550446,
+    "specificity": 0.5234375,
+    "roc_auc": 0.5981671491825613,
+    "threshold": 0.0024590869434177876,
+    "threshold_method": "Youden_J_statistic"
+  },
+  "vgg": {
+    "accuracy": 0.7242424242424242,
+    "precision": 0.826025459688826,
+    "recall": 0.7956403269754768,
+    "f1": 0.8105482303955587,
+    "specificity": 0.51953125,
+    "roc_auc": 0.5879651311307901,
+    "threshold": 0.0027138174045830965,
+    "threshold_method": "Youden_J_statistic"
+  }
+}

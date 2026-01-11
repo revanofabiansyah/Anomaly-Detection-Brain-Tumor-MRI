@@ -1,0 +1,209 @@
+{
+  "project": {
+    "name": "Brain Tumor MRI Anomaly Detection using Deep Learning",
+    "university": "Universitas Telkom",
+    "program": "S2 Informatika",
+    "course": "Fundamental Computer Vision",
+    "date_created": "2026-01-05",
+    "deadline_submission": "2026-01-11",
+    "deadline_presentation": "2026-01-12",
+    "framework": "PyTorch",
+    "framework_version": "2.1.0"
+  },
+  
+  "dataset": {
+    "name": "Brain Tumor MRI Dataset",
+    "source": "https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset",
+    "format": "PNG Grayscale",
+    "image_size": [256, 256],
+    "channels": 1,
+    "total_classes": 2,
+    "classes": ["normal", "defect"],
+    "expected_size_mb": 500,
+    "has_labels": true,
+    "label_type": "binary"
+  },
+  
+  "preprocessing": {
+    "image_size": 256,
+    "normalization": "minmax",
+    "normalization_range": [0, 1],
+    "augmentation": true,
+    "augmentation_factor": 2,
+    "augmentation_techniques": ["rotation", "flip", "brightness"],
+    "test_split": 0.2,
+    "val_split": 0.1,
+    "train_split": 0.7,
+    "random_seed": 42
+  },
+  
+  "model": {
+    "architecture": "Autoencoder",
+    "encoder_blocks": [
+      {"filters": 32, "kernel": 3, "activation": "relu", "pool": 2},
+      {"filters": 64, "kernel": 3, "activation": "relu", "pool": 2},
+      {"filters": 128, "kernel": 3, "activation": "relu", "pool": 2},
+      {"filters": 256, "kernel": 3, "activation": "relu", "pool": 2}
+    ],
+    "bottleneck_dim": 64,
+    "decoder_symmetric": true,
+    "loss_function": "mse",
+    "activation_output": "sigmoid",
+    "batch_normalization": true,
+    "dropout_rate": 0.0
+  },
+  
+  "training": {
+    "optimizer": "adam",
+    "learning_rate": 0.001,
+    "learning_rate_scheduler": true,
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 5,
+    "epochs": 100,
+    "batch_size": 32,
+    "validation_split": 0.15,
+    "early_stopping": true,
+    "early_stopping_patience": 10,
+    "early_stopping_monitor": "val_loss",
+    "callbacks": ["EarlyStopping", "ReduceLROnPlateau"]
+  },
+  
+  "anomaly_detection": {
+    "method": "reconstruction_error",
+    "threshold_method": "percentile",
+    "threshold_percentile": 95,
+    "threshold_calculation_data": "training_set"
+  },
+  
+  "evaluation_metrics": [
+    "accuracy",
+    "precision",
+    "recall",
+    "f1_score",
+    "specificity",
+    "roc_auc",
+    "confusion_matrix",
+    "roc_curve",
+    "reconstruction_error_distribution"
+  ],
+  
+  "output": {
+    "model_format": "h5",
+    "model_path": "models/autoencoder_model.h5",
+    "metrics_path": "results/metrics.json",
+    "predictions_path": "results/predictions.json",
+    "visualizations": [
+      "training_history.png",
+      "confusion_matrix.png",
+      "roc_curve.png",
+      "reconstruction_comparison.png",
+      "anomaly_score_distribution.png"
+    ]
+  },
+  
+  "report_requirements": {
+    "format": "PDF",
+    "max_pages": 15,
+    "sections": [
+      "Introduction",
+      "Literature Review",
+      "Dataset Description",
+      "Preprocessing & Data Preparation",
+      "Method & Architecture",
+      "Implementation Details",
+      "Experimental Results",
+      "Analysis & Discussion",
+      "Conclusion",
+      "References"
+    ],
+    "appendices": [
+      "Code snippets",
+      "Additional visualizations",
+      "Detailed metrics table"
+    ]
+  },
+  
+  "deliverables": {
+    "source_code": {
+      "language": "Python",
+      "main_files": [
+        "src/model.py",
+        "src/prepare_data.py",
+        "src/train.py",
+        "src/utils.py"
+      ],
+      "notebooks": [
+        "notebooks/01_EDA.ipynb",
+        "notebooks/02_Data_Preparation.ipynb",
+        "notebooks/03_Model_Training.ipynb",
+        "notebooks/04_Results_Analysis.ipynb"
+      ],
+      "documentation": [
+        "README.md",
+        "DATASET_SOURCES.md",
+        "QUICK_START.md"
+      ]
+    },
+    "models": [
+      "models/autoencoder_model.h5"
+    ],
+    "results": [
+      "results/metrics.json",
+      "results/predictions.json",
+      "results/training_history.png",
+      "results/confusion_matrix.png",
+      "results/roc_curve.png"
+    ],
+    "report": [
+      "report.pdf"
+    ],
+    "presentation": [
+      "presentation.pptx"
+    ]
+  },
+  
+  "hardware_requirements": {
+    "minimum_ram_gb": 4,
+    "recommended_ram_gb": 8,
+    "gpu": "optional",
+    "gpu_memory_gb": 2,
+    "storage_gb": 2
+  },
+  
+  "software_requirements": {
+    "python_version": ">=3.8",
+    "key_packages": [
+      "tensorflow>=2.10",
+      "keras>=2.10",
+      "opencv-python",
+      "numpy",
+      "pandas",
+      "scikit-learn",
+      "matplotlib",
+      "jupyter"
+    ]
+  },
+  
+  "grading_criteria": {
+    "completeness": {
+      "weight": 20,
+      "description": "Pemenuhan seluruh tahapan proyek"
+    },
+    "creativity_relevance": {
+      "weight": 10,
+      "description": "Pemilihan dataset yang sesuai dan inovatif"
+    },
+    "implementation_quality": {
+      "weight": 25,
+      "description": "Akurasi dan efisiensi algoritma yang diterapkan"
+    },
+    "analysis_evaluation": {
+      "weight": 30,
+      "description": "Kedalaman analisis terhadap hasil evaluasi model"
+    },
+    "report_quality": {
+      "weight": 15,
+      "description": "Kerapihan, kelengkapan, dan penyajian laporan"
+    }
+  }
+}
